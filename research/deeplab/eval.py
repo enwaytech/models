@@ -17,8 +17,8 @@
 See model.py for more details and usage.
 """
 
-import six
 import math
+import six
 import tensorflow as tf
 from deeplab import common
 from deeplab import model
@@ -126,7 +126,7 @@ def main(unused_argv):
     weights = tf.to_float(tf.not_equal(labels, dataset.ignore_label))
 
     # Set ignore_label regions to label 0, because metrics.mean_iou requires
-    # range of labels = [0, dataset.num_classes). Note the ignore_lable regions
+    # range of labels = [0, dataset.num_classes). Note the ignore_label regions
     # are not evaluated since the corresponding regions contain weights = 0.
     labels = tf.where(
         tf.equal(labels, dataset.ignore_label), tf.zeros_like(labels), labels)
